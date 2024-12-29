@@ -29,12 +29,14 @@ O arquivo `main.dart` contém a estrutura principal do aplicativo.
 
 ## Estrutura de Diretórios
 
+```
 lib/
 ├── main.dart
 assets/
 └── images/
-├── streat.jpg
-└── flag.png
+   ├── streat.jpg
+   └── flag.png
+```
 
 ## Dependências
 
