@@ -9,22 +9,37 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      debugShowCheckedModeBanner: false,
-        home: HomePage());
+    return MaterialApp(debugShowCheckedModeBanner: false, home: HomePage());
   }
 }
 
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
   const HomePage({super.key});
 
+  @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  int count = 0;
+
   void decrement() {
-    print('decrement');
+    setState(() {
+      count--;
+    });
+    print(count);
   }
 
   void increment() {
-    print('increment');
+    setState(() {
+      count++;
+    });
+    print(count);
   }
+
+  bool get isEmpty => count == 0;
+
+  bool get isFull => count == 20;
 
   @override
   Widget build(BuildContext context) {
@@ -32,39 +47,52 @@ class HomePage extends StatelessWidget {
       backgroundColor: Colors.green,
       body: Container(
         decoration: const BoxDecoration(
-          image: DecorationImage(image: AssetImage('assets/images/streat.jpg'),
-          fit: BoxFit.cover,
+          image: DecorationImage(
+            image: AssetImage('assets/images/streat.jpg'),
+            fit: BoxFit.cover,
           ),
         ),
-
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            const Text(
-              'Can access!',
-              style: TextStyle(fontSize: 48, color: Colors.white),
+            Stack(
+              alignment: Alignment.center,
+              children: [
+                SizedBox(
+                  width: 350,
+                  height: 120,
+                  child: Image.asset('assets/images/flag.png'),
+                ),
+                Text(
+                  isFull ? 'Full' : 'Access!',
+                  style: const TextStyle(fontSize: 48, color: Colors.black),
+                ),
+              ],
             ),
-            const Padding(
-              padding: EdgeInsets.all(40),
+            Padding(
+              padding: const EdgeInsets.all(40),
               child: Text(
-                '0',
-                style: TextStyle(fontSize: 100, color: Colors.white),
+                '$count',
+                style: TextStyle(
+                  fontSize: 100,
+                  color: isFull ? Colors.red : Colors.white,
+                ),
               ),
             ),
-
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 TextButton(
+                  onPressed: isEmpty ? null : decrement,
                   style: TextButton.styleFrom(
-                    backgroundColor: Colors.white,
+                    backgroundColor:
+                        isEmpty ? Colors.white.withOpacity(0.2) : Colors.white,
                     fixedSize: const Size(100, 100),
                     shape: RoundedRectangleBorder(
-                      side: BorderSide(color: Colors.black),
+                      side: const BorderSide(color: Colors.black),
                       borderRadius: BorderRadius.circular(30),
                     ),
                   ),
-                  onPressed: decrement,
                   child: const Text(
                     'Exit',
                     style: TextStyle(color: Colors.black, fontSize: 30),
@@ -72,15 +100,16 @@ class HomePage extends StatelessWidget {
                 ),
                 const SizedBox(width: 30),
                 TextButton(
+                  onPressed: isFull ? null : increment,
                   style: TextButton.styleFrom(
-                    backgroundColor: Colors.white,
+                    backgroundColor:
+                        isFull ? Colors.white.withOpacity(0.2) : Colors.white,
                     fixedSize: const Size(100, 100),
                     shape: RoundedRectangleBorder(
-                      side: BorderSide(color: Colors.black),
+                      side: const BorderSide(color: Colors.black),
                       borderRadius: BorderRadius.circular(30),
                     ),
                   ),
-                  onPressed: increment,
                   child: const Text(
                     'Enter',
                     style: TextStyle(color: Colors.black, fontSize: 30),
