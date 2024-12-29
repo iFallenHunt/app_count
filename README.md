@@ -1,48 +1,50 @@
-# Contador de Acessos
+[🇧🇷](https://github.com/iFallenHunt/app_count/blob/master/README-PTBR.md)
 
-Este projeto é um aplicativo Flutter simples que exibe uma imagem de fundo, uma imagem de bandeira e
-um contador que pode ser incrementado ou decrementado. Quando o contador atinge o valor máximo, o
-texto do contador muda para vermelho.
+# Access Counter
 
-## Funcionalidades
+This project is a simple Flutter application that displays a background image, a flag image and a counter that can be incremented or decremented.
+a counter that can be incremented or decremented. When the counter reaches the maximum value, the
+counter text changes to red.
 
-- Exibe uma imagem de fundo.
-- Exibe uma imagem de bandeira.
-- Exibe um contador que pode ser incrementado ou decrementado.
-- O texto do contador muda para vermelho quando atinge o valor máximo.
+## Features
 
-## Estrutura do Código
+- Displays a background image.
+- Displays a flag image.
+- Displays a counter that can be incremented or decremented.
+- The counter text changes to red when it reaches the maximum value.
+
+## Code Structure
 
 ### `main.dart`
 
-O arquivo `main.dart` contém a estrutura principal do aplicativo.
+The `main.dart` file contains the main structure of the application.
 
-## Como Executar
+## How to Run
 
-1. Certifique-se de ter o Flutter instalado em sua máquina. Para mais informações, consulte
-   a [documentação oficial do Flutter](https://flutter.dev/docs/get-started/install).
-2. Clone este repositório.
-3. Navegue até o diretório do projeto.
-4. Execute `flutter pub get` para instalar as dependências.
-5. Conecte um dispositivo ou inicie um emulador.
-6. Execute `flutter run` para iniciar o aplicativo.
+1. Make sure you have Flutter installed on your machine. For more information, see
+   the [official Flutter documentation](https://flutter.dev/docs/get-started/install).
+2. Clone this repository.
+3. Navigate to the project directory.
+4. Run `flutter pub get` to install the dependencies.
+5. Connect a device or start an emulator.
+6. Run `flutter run` to start the application.
 
-## Estrutura de Diretórios
+## Directory Structure
 
 ```
 lib/
 ├── main.dart
 assets/
-└── images/
+└── images/s
    ├── streat.jpg
    └── flag.png
 ```
 
-## Dependências
+## Dependencies
 
 - Flutter SDK
 
-## Licença
+## License
 
-Este projeto está licenciado sob a Licença MIT. Consulte o arquivo `LICENSE` para obter mais
-informações.
+This project is licensed under the MIT License. See the `LICENSE` file for more
+information.
